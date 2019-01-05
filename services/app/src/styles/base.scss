@@ -1,0 +1,112 @@
+@import '~bootstrap/scss/bootstrap';
+@import "variables";
+
+body {
+    min-height: 100vh;
+    border: 10px solid #FF008D;
+    .fa-react {
+        color: #90daf9;
+    }
+    .fa-vuejs {
+        color: #73b886;
+    }
+    .fa-docker {
+        color: #589be9;
+    }
+}
+
+.nav {
+    a .fab {
+        color: #000;
+        transition: color 300ms;
+    }
+    a:hover .fab{
+        color: #FF008D;
+    }
+}
+
+.wrapper {
+    max-width: 54rem;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.title {
+    margin-top: -18px;
+    font-family: sans-serif;
+    display: inline-block;
+    position: relative;
+    color: #000;
+    background: #fff;
+    mix-blend-mode: multiply;
+    font-size: 6.9rem;
+    word-break: break-word;
+    font-weight: 900;
+    line-height: 0.9;
+
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-image: url('/assets/images/gradient.svg');
+        pointer-events: none;
+        mix-blend-mode: screen;
+    }
+
+    @media (max-width: 768px) {
+        font-size: 3rem;
+        line-height: normal;
+    }
+}
+h3.title {
+    font-size: 1.75rem;
+}
+
+.avatar {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.description {
+    a {
+        position: relative;
+        padding-left: 5px;
+        padding-right: 5px;
+        color: #fff;
+
+        &:hover {
+            color: #fff;
+            text-decoration: none;
+
+            &:after {
+                transform: rotate(2deg);
+            }
+        }
+
+        &:after {
+            display: block;
+            content: '';
+            background: #FF008D;
+            width: 100%;
+            position: absolute;
+            z-index: -1;
+            transition: all 0.2s;
+            height: 30px;
+            left: 0;
+            transform: rotate(1deg);
+            bottom: 0;
+            @media (max-width: 768px) {
+                height: 20px;
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        font-size: 1.2rem;
+    }
+}

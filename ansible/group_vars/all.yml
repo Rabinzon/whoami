@@ -1,0 +1,5 @@
+ansible_python_interpreter: "/usr/bin/env python3"
+ildar_gilfanov_run_user_home: /home/ubuntu/whoami
+ildar_gilfanov_docker_network: ildar_gilfanov_network
+ildar_gilfanov_docker_image: rabinzon/whoami
+ildar_gilfanov_run_user: ubuntu

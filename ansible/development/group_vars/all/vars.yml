@@ -1,0 +1,3 @@
+ildar_gilfanov_port: 4000
+node_env: development
+ildar_gilfanov_env_file: ../.env

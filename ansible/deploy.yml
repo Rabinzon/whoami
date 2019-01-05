@@ -1,0 +1,43 @@
+
+---
+
+- hosts: webserver
+  gather_facts: no
+
+  tasks:
+    - template:
+        src: environment.j2
+        dest: "{{ ildar_gilfanov_env_file }}"
+      tags: env
+
+    - name: download ildar_gilfanov
+      docker_image:
+        name: "{{ ildar_gilfanov_docker_image }}"
+        force: yes
+      tags: [app]
+
+    - name: start app
+      docker_container:
+        recreate: yes
+        name: whoami-app
+        image: "{{ ildar_gilfanov_docker_image }}"
+        state: started
+        command: make server
+        restart_policy: always
+        env_file: "{{ ildar_gilfanov_env_file }}"
+        ports:
+          - "{{ ildar_gilfanov_port }}:3000"
+        networks:
+          - name: "{{ ildar_gilfanov_docker_network }}"
+      tags: [app]
+
+  post_tasks:
+    - name: notify slack
+      local_action:
+          module: slack
+          domain: rabinzon.slack.com
+          token: "{{ slack_token }}"
+          msg: "ildargilfanov.ru deploy completed 🚀"
+          channel: "#operation"
+          username: "{{ ansible_ssh_user }}"
+      run_once: true

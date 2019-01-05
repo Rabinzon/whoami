@@ -1,0 +1,4 @@
+ildar_gilfanov_run_user_home: /home/ubuntu/whoami
+ildar_gilfanov_env_file: "{{ ildar_gilfanov_run_user_home }}/.env"
+ildar_gilfanov_port: 2024
+node_env: production

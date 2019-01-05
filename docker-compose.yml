@@ -1,0 +1,14 @@
+version: '3.3'
+
+services:
+  app:
+    env_file:
+      - ".env"
+    build:
+      context: services/app
+      dockerfile: Dockerfile.development
+    volumes:
+      - "./services/app:/usr/src/app:rw"
+    command: "make start"
+    ports:
+      - "${ILDAR_GILFANOV_PORT}:3000"
