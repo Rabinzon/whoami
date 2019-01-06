@@ -16,11 +16,11 @@ body {
 }
 
 .nav {
-    a .fab {
+    a .fab, a .far {
         color: #000;
         transition: color 300ms;
     }
-    a:hover .fab{
+    a:hover .fab, a:hover .far {
         color: #FF008D;
     }
 }
